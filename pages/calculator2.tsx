@@ -17,6 +17,7 @@ const Calculator2 = () => {
   }, [result]);
 
   console.log(num1, type, num2);
+  
   console.log(result);
 
   const onChangeValue = (e) => {
