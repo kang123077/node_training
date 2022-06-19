@@ -15,7 +15,7 @@ const Calculator2 = () => {
   useEffect(() => {
     document.title = `Result is ${result}`;
   }, [result]);
-
+  
   const onChangeValue = (e) => {
     setInputs({
       ...inputs,
