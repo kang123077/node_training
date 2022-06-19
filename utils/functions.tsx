@@ -3,9 +3,9 @@ export const functionCalculator = ({
   type,
   num2,
 }: {
-  num1: string;
+  num1: number;
   type: "+" | "-" | "*" | "/" | string;
-  num2: string;
+  num2: number;
 }) => {
   switch (type) {
     case "+":
