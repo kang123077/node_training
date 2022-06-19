@@ -13,7 +13,7 @@ const Calculator2 = () => {
   const { num1, type, num2 } = inputs;
 
   useEffect(() => {
-	document.title = `Result is ${result}`
+    document.title = `Result is ${result}`;
   }, [result]);
   
   const onChangeValue = (e) => {
