@@ -5,16 +5,16 @@ import { useCallback, useDebugValue, useEffect, useState } from "react";
 const Fibonacci = () => {
   const [n, setN] = useState();
 
-  //useCallback 사용이 필요 없는 포맷인듯?
-  const onChangeValue = (e) => {
-    setN(fucntionFibonacci(e.target.value));
-  };
+  const onChangeValue = useCallback(
+    (e) => {
+      setN(fucntionFibonacci(e.target.value));
+    },
+    [n]
+  );
 
   useEffect(() => {
     document.title = `n번째 피보나치 수열은 ${n}`;
   }, [n]);
-
-  console.log(n);
 
   return (
     <div>
