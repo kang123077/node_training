@@ -1,6 +1,6 @@
 import MyLayout from "../component/MyLayout";
 import { useCallback, useDebugValue, useEffect, useState } from "react";
-import axios from "../node_modules/axios/index";
+import axios from "axios";
 import DataForm from "../component/DataForm";
 
 export type photoType = {
@@ -30,7 +30,7 @@ const Calculator2 = () => {
       e.preventDefault();
       const result = await axios.get(API_URL);
       // console.log("result.data: ", result.data.slice(1, 30));
-      setDatas(result.data.slice(1, 100));
+      setDatas(result.data.slice(0, 100));
     },
     [API_URL]
   );
