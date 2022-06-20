@@ -4,7 +4,7 @@ const Index = () => {
   return (
     <div>
       <MyLayout>
-        <h1>PROFILE</h1>
+        <h1>HOME</h1>
       </MyLayout>
     </div>
   )
