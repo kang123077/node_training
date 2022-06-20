@@ -12,22 +12,41 @@ export type photoType = {
 };
 
 const Calculator2 = () => {
+  const [idnum, setIdnum] = useState<number>();
   const [datas, setDatas] = useState<photoType[]>([]);
 
-  const API_URL = "https://jsonplaceholder.typicode.com/photos";
+  const API_URL = "https://jsonplaceholder.typicode.com/photos/";
 
   useEffect(() => {
+    if (idnum) console.log(idnum, "idnum");
     if (datas.length) console.log(datas);
-  }, [datas]);
+  }, [idnum, datas]);
 
   const getAPI = useCallback(
     async (e) => {
       e.preventDefault();
       const result = await axios.get(API_URL);
       // console.log("result.data: ", result.data.slice(1, 30));
-      setDatas(result.data.slice(1, 30));
+      setDatas(result.data.slice(1, 100));
     },
     [API_URL]
+  );
+
+  const getSelAPI = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const result = await axios.get(API_URL);
+      // console.log("result.data: ", result.data.slice(1, 30));
+      setDatas(result.data.slice(idnum - 1, idnum));
+    },
+    [idnum, API_URL]
+  );
+
+  const onChangeValue = useCallback(
+    (e) => {
+      setIdnum(e.target.value);
+    },
+    [idnum]
   );
 
   return (
@@ -35,7 +54,15 @@ const Calculator2 = () => {
       <MyLayout>
         <h1>Restapi</h1>
         <p>get data from "https://jsonplaceholder.typicode.com/photos"</p>
-        <button onClick={getAPI}>Fetching Data!</button>
+        <input
+          type="number"
+          placeholder="put idnum"
+          onChange={onChangeValue}
+        ></input>
+        <p></p>
+        <button onClick={getSelAPI}>Fetching selected Data!</button>
+        <p></p>
+        <button onClick={getAPI}>Fetching 1~100 Data!</button>
         <DataForm datas={datas} />
       </MyLayout>
     </div>
