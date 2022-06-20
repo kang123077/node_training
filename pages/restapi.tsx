@@ -19,8 +19,11 @@ const Calculator2 = () => {
 
   useEffect(() => {
     if (idnum) console.log(idnum, "idnum");
+  }, [idnum]);
+
+  useEffect(() => {
     if (datas.length) console.log(datas);
-  }, [idnum, datas]);
+  }, [datas]);
 
   const getAPI = useCallback(
     async (e) => {
