@@ -16,6 +16,9 @@ const Header = () => {
       <HeaderLinkWrapper onClick={() => push("/calculator2")}>
         Calculator2
       </HeaderLinkWrapper>
+      <HeaderLinkWrapper onClick={() => push("/restapi")}>
+        Restapi
+      </HeaderLinkWrapper>
       <HeaderLinkWrapper onClick={() => push("/fibonacci")}>
         Fibonacci
       </HeaderLinkWrapper>
