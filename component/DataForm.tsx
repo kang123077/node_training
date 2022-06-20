@@ -15,6 +15,7 @@ function DataForm(props: Props) {
           <div key={data.id}>
             <p>title: {data.title}</p>
             <p>url: {data.url}</p>
+			<img src={data.url} alt="img from api"></img>
           </div>
         ))}
     </div>
