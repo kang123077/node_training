@@ -6,12 +6,11 @@ const Photos = ({ photos, loading }) => {
       {loading && <div> loading... </div>}
       <ul>
         {photos.map((photo) => (
-          <li key={photo.id}>{photo.title}</li>
-        ))}
-      </ul>
-      <ul>
-        {photos.map((photo) => (
-          <li key={photo.id}>{photo.url}</li>
+          <li key={photo.id}>
+            {photo.title}
+            <p></p>
+            <img src={photo.url}></img>
+          </li>
         ))}
       </ul>
     </div>

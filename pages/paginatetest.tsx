@@ -2,6 +2,7 @@ import MyLayout from "../component/MyLayout";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Posts from "../component/Posts";
+import Photos from "../component/Photos";
 import Pagination from "../component/Pagination";
 
 function Paginatetest() {
@@ -36,7 +37,7 @@ function Paginatetest() {
     <div className="App">
       <MyLayout>
         <h1>Paginationtest</h1>
-        <Posts posts={currentPosts(posts)} loading={loading}></Posts>
+        <Photos photos={currentPosts(posts)} loading={loading}></Photos>
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
