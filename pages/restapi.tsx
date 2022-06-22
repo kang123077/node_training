@@ -12,7 +12,7 @@ export type photoType = {
 };
 
 const Calculator2 = () => {
-  const [idnum, setIdnum] = useState<number>();
+  const [idnum, setIdnum] = useState<number>(1);
   const [datas, setDatas] = useState<photoType[]>([]);
 
   const API_URL = "https://jsonplaceholder.typicode.com/photos/";
@@ -59,7 +59,7 @@ const Calculator2 = () => {
         <p>get data from "https://jsonplaceholder.typicode.com/photos"</p>
         <input
           type="number"
-          placeholder="put idnum"
+          placeholder="put idnum, initial value = 1"
           onChange={onChangeValue}
         ></input>
         <p></p>

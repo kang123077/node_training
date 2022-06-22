@@ -2,7 +2,7 @@ import MyLayout from "../component/MyLayout";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Posts from "../component/Posts";
-import Pagination from "../component/pagination";
+import Pagination from "../component/Pagination";
 
 function Paginatetest() {
   const [posts, setPosts] = useState([]);
@@ -14,7 +14,7 @@ function Paginatetest() {
     const fetchData = async () => {
       setLoading(true);
       const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
+        "https://jsonplaceholder.typicode.com/photos"
       );
       setPosts(response.data);
       setLoading(false);
