@@ -28,6 +28,9 @@ const Header = () => {
       <HeaderLinkWrapper onClick={() => push("/paginatetest")}>
         Paginatetest
       </HeaderLinkWrapper>
+      <HeaderLinkWrapper onClick={() => push("/querypagitest")}>
+        Querypagitest
+      </HeaderLinkWrapper>
       <HeaderLinkWrapper onClick={() => push("/test")}>Test</HeaderLinkWrapper>
     </HeaderWrapper>
   );

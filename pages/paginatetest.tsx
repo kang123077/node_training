@@ -1,7 +1,6 @@
 import MyLayout from "../component/MyLayout";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Posts from "../component/Posts";
 import Photos from "../component/Photos";
 import Pagination from "../component/Pagination";
 
