@@ -29,6 +29,7 @@ const ItemWrapper = styled.a`
   border-style: none none none solid;
   border-color: #9381dd;
   border-width: 6px;
+  cursor: pointer;
 `;
 
 const Left = styled.div`

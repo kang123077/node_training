@@ -42,9 +42,9 @@ const posts = [
 ];
 
 const Content = () => {
-  const router = useRouter();
+  const { query } = useRouter();
 
-  const post = posts[router.query.id - 1];
+  const post = posts[+query.id - 1];
   const nickname = post.nickname;
   const title = post.title;
   const content = post.content;
