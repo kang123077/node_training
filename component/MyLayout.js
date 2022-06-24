@@ -5,7 +5,6 @@ const MyLayout = (props) => {
   return (
     <MyLayoutWrapper>
       <Header />
-      {/*<p id="test">테테테</p>*/}
       {props.children}
     </MyLayoutWrapper>
   );
