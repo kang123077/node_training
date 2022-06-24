@@ -1,4 +1,4 @@
-//_app.tsx
+import '../styles/global.css'
 
 import React from "react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";

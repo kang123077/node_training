@@ -22,16 +22,15 @@ const Header = () => {
       <HeaderLinkWrapper onClick={() => push("/fibonacci")}>
         Fibonacci
       </HeaderLinkWrapper>
-      <HeaderLinkWrapper onClick={() => push("/ricknmorty")}>
-        Ricknmorty
-      </HeaderLinkWrapper>
       <HeaderLinkWrapper onClick={() => push("/paginatetest")}>
         Paginatetest
       </HeaderLinkWrapper>
       <HeaderLinkWrapper onClick={() => push("/querypagitest")}>
         Querypagitest
       </HeaderLinkWrapper>
-      <HeaderLinkWrapper onClick={() => push("/test")}>Test</HeaderLinkWrapper>
+      <HeaderLinkWrapper onClick={() => push("/forum")}>
+        Forum
+      </HeaderLinkWrapper>
     </HeaderWrapper>
   );
 };
