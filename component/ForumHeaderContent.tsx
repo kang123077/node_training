@@ -21,6 +21,8 @@ const HeaderWrapper = styled.div`
   height: 60px;
   background-color: #363636;
   color: white;
+  margin: 0px;
+  padding: 0px;
 `;
 
 const PathText = styled.p`
