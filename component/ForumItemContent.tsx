@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const ForumItemContent = (props) => {
   return (
-    <Link href={`/post?id=${props.id}`}>
+    <Link href={`/post/${props.id}`}>
       <ItemWrapper>
         <Left>
           <LeftText>닉네임</LeftText>
@@ -23,8 +23,7 @@ export default ForumItemContent;
 
 const ItemWrapper = styled.a`
   display: flex;
-  width: 894px;
-  height: 200px;
+  height: 23.5vh;
   background-color: #f6f8ff;
   border-style: none none none solid;
   border-color: #9381dd;
@@ -33,19 +32,18 @@ const ItemWrapper = styled.a`
 `;
 
 const Left = styled.div`
-  width: 100px;
+  width: 11vw;
   height: 100%;
 `;
 
 const Right = styled.div`
-  width: 794px;
+  width: 79vw;
   height: 100%;
 `;
 
 const LeftText = styled.div`
-  width: 80px;
   height: 20px;
-  margin-top: 20px;
+  margin: 20px 20px 0px 0px;
   text-align: right;
   font-size: 16px;
   font-weight: bold;
@@ -53,7 +51,6 @@ const LeftText = styled.div`
 `;
 
 const RightText = styled.div`
-  width: 780px;
   height: 20px;
   margin-top: 21.5px;
   text-align: left;
@@ -66,7 +63,6 @@ const RightText = styled.div`
 `;
 
 const RightContent = styled.div`
-  width: 780px;
   height: 75px;
   margin-top: 21.5px;
   text-align: left;

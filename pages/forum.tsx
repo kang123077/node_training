@@ -76,5 +76,5 @@ const ItemListContent = styled.div`
   align-items: center;
   justify-content: center;
   gap: 40px;
-  margin-top: 50px;
+  margin: 50px 0px 50px 0px;
 `;
