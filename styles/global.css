@@ -19,3 +19,58 @@ body {
 .light {
 	font-weight: 300
 }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin: 0px 0px 50px 0px;
+	gap: 10px
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+ul.pagination li {
+	display: inline-block;
+	background: #F6F8FF;
+	border: 1px solid #9381DD;
+	border-radius: 12px;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+}
+
+ul.pagination li:first-child {
+}
+
+ul.pagination li:last-child {
+}
+
+ul.pagination li a {
+	text-decoration: none;
+	color: #494949;
+}
+
+ul.pagination li.active a {
+	color: white;
+}
+
+ul.pagination li.active {
+	background-color: #494949;
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+	color: #9381DD;
+}
+
+.page-selection {
+	width: 48px;
+	height: 30px;
+	color: #494949;
+}
