@@ -6,7 +6,7 @@ const ForumPreProContent = (props) => {
   return (
     <Link href={`${props.id}`}>
       <ItemWrapper>
-        <NextText>{props.prepro}</NextText>
+        <PreProText>{props.prepro}</PreProText>
         <Left>
           <LeftText>닉네임</LeftText>
           <LeftText>제목</LeftText>
@@ -22,15 +22,7 @@ const ForumPreProContent = (props) => {
 
 export default ForumPreProContent;
 
-const NextText = styled.div`
-  position: absolute;
-  font-size: 14px;
-  font-weight: bold;
-  color: #494949;
-  transform: translate(-8px, -22px);
-`;
-
-const PrevText = styled.div`
+const PreProText = styled.div`
   position: absolute;
   font-size: 14px;
   font-weight: bold;
