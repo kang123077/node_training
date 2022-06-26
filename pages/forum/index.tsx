@@ -4,20 +4,20 @@ import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-const Forum = ({ posts }) => {
+const Forum = ({ list }) => {
   const [pathtext, setPathtext] = useState("Forum");
 
   return (
     <div>
       <ForumHeaderContent pathtext={pathtext} />
       <ItemListContent>
-        {posts.map((post) => (
+        {list.map((list) => (
           <ForumItemContent
-            key={post.id}
-            id={post.id}
-            nickname={post.id}
-            title={post.title}
-            content={post.body}
+            key={list.id}
+            id={list.id}
+            nickname={list.nickName}
+            title={list.title}
+            content={list.content}
           />
         ))}
       </ItemListContent>
@@ -26,12 +26,11 @@ const Forum = ({ posts }) => {
 };
 
 Forum.getInitialProps = async () => {
-  const { data: posts } = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
-  console.log("data loaded");
-  console.log(posts);
-  return { posts };
+  const {
+    data: { list, pagination },
+  } = await axios.get("http://124.197.210.234:8188/bulletin/list");
+  console.log(list, pagination);
+  return { list: list };
 };
 
 export default Forum;

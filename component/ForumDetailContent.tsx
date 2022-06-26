@@ -1,25 +1,23 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-const ForumItemContent = (props) => {
+const ForumDetailContent = (props) => {
   return (
-    <Link href={`forum/${props.id}`}>
-      <ItemWrapper>
-        <Left>
-          <LeftText>닉네임</LeftText>
-          <LeftText>제목</LeftText>
-        </Left>
-        <Right>
-          <RightText>{props.nickname}</RightText>
-          <RightText>{props.title}</RightText>
-          <RightContent>{props.content}</RightContent>
-        </Right>
-      </ItemWrapper>
-    </Link>
+    <ItemWrapper>
+      <Left>
+        <LeftText>닉네임</LeftText>
+        <LeftText>제목</LeftText>
+      </Left>
+      <Right>
+        <RightText>{props.nickname}</RightText>
+        <RightText>{props.title}</RightText>
+        <RightContent>{props.content}</RightContent>
+      </Right>
+    </ItemWrapper>
   );
 };
 
-export default ForumItemContent;
+export default ForumDetailContent;
 
 const ItemWrapper = styled.a`
   display: flex;
@@ -27,7 +25,6 @@ const ItemWrapper = styled.a`
   border-style: none none none solid;
   border-color: #9381dd;
   border-width: 6px;
-  cursor: pointer;
 `;
 
 const Left = styled.div`

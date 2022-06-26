@@ -1,24 +1,59 @@
 import axios from "axios";
 import ForumHeaderContent from "../../component/ForumHeaderContent";
+import ForumDetailContent from "../../component/ForumDetailContent";
+import ForumPreProContent from "../../component/ForumPreProContent";
+import styled from "styled-components";
 
-const Post = ({ post }) => (
+const Post = ({ detail, next, prev }) => (
   <div>
-    <ForumHeaderContent pathtext={post.id}/>
-    <p>id</p>
-    <p>{post.id}</p>
-    <p>title</p>
-    <p>{post.title}</p>
-    <p>body</p>
-    <p>{post.body}</p>
+    <ForumHeaderContent pathtext={detail.id} />
+    <DetailWrapper>
+      <ForumDetailContent
+        nickname={detail.nickName}
+        title={detail.title}
+        content={detail.content}
+      />
+      <PreProWrapper>
+        <ForumPreProContent
+          id={next.id}
+          nickname={next.nickname}
+          title={next.title}
+          content={next.content}
+        />
+        <ForumPreProContent
+          id={prev.id}
+          nickname={prev.nickname}
+          title={prev.title}
+          content={prev.content}
+        />
+      </PreProWrapper>
+    </DetailWrapper>
   </div>
 );
 
 Post.getInitialProps = async (context) => {
   const { id } = context.query;
-  const { data: post } = await axios.get(
-    `https://jsonplaceholder.typicode.com/posts/${id}`
-  );
-  return { post };
+  const {
+    data: { detail, next, prev },
+  } = await axios.get(`http://124.197.210.234:8188/bulletin/${+id}`);
+  console.log(detail, next, prev);
+  return { detail: detail, next: next, prev: prev };
 };
+const PreProWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3.6vw;
+  margin: 40px 0px 0px 0px;
+`;
+
+const DetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0px 50px 0px;
+`;
 
 export default Post;
