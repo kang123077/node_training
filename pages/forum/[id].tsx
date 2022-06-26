@@ -15,16 +15,18 @@ const Post = ({ detail, next, prev }) => (
       />
       <PreProWrapper>
         <ForumPreProContent
-          id={next.id}
-          nickname={next.nickname}
-          title={next.title}
-          content={next.content}
-        />
-        <ForumPreProContent
+          prepro={"이전 글"}
           id={prev.id}
           nickname={prev.nickname}
           title={prev.title}
           content={prev.content}
+        />
+        <ForumPreProContent
+          prepro={"다음 글"}
+          id={next.id}
+          nickname={next.nickname}
+          title={next.title}
+          content={next.content}
         />
       </PreProWrapper>
     </DetailWrapper>
