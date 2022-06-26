@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/_document.js"
-  ],
+, "component/Photos.js", "component/Posts.js"  ],
   "exclude": [
     "node_modules"
   ]
