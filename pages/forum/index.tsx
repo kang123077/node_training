@@ -6,14 +6,15 @@ import styled from "styled-components";
 import axios from "axios";
 import Pagination from "react-js-pagination";
 
-const Forum = ({ list }) => {
+const Forum = ({ list, pagination }) => {
   const [pathtext, setPathtext] = useState("Forum");
   const [page, setPage] = useState(1);
-  const router = useRouter();
+  const [numperpage, setNumperpage] = useState(5);
+  const { push } = useRouter();
 
   const handlePageChange = (page) => {
     setPage(page);
-    router.push(`forum?curPage=${page}`)
+    push(`forum?curPage=${page}`);
   };
 
   return (
@@ -32,13 +33,14 @@ const Forum = ({ list }) => {
       </ItemListContent>
       <Pagination
         activePage={page}
-        itemsCountPerPage={10}
-        totalItemsCount={450}
-        pageRangeDisplayed={5}
+        itemsCountPerPage={numperpage}
+        totalItemsCount={pagination.totalSize}
+        pageRangeDisplayed={10}
         prevPageText={"‹"}
         nextPageText={"›"}
         onChange={handlePageChange}
       />
+      <WriteButton>글쓰기</WriteButton>
     </div>
   );
 };
@@ -55,7 +57,7 @@ Forum.getInitialProps = async ({ query }) => {
     },
   });
   console.log(list, pagination);
-  return { list: list };
+  return { list: list, pagination: pagination };
 };
 
 export default Forum;
@@ -67,4 +69,25 @@ const ItemListContent = styled.div`
   justify-content: center;
   gap: 40px;
   margin: 50px 0px 50px 0px;
+`;
+
+const WriteButton = styled.button`
+  position: fixed;
+  width: 108px;
+  height: 40px;
+  font-size: 14px;
+  right: 35px;
+  bottom: 35px;
+  background: #f6f8ff;
+  border: 1px solid #9381dd;
+  box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.25);
+  border-radius: 100px;
+
+  &:active,
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background: #494949;
+    color: white;
+  }
 `;

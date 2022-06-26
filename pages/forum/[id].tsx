@@ -14,20 +14,24 @@ const Post = ({ detail, next, prev }) => (
         content={detail.content}
       />
       <PreProWrapper>
-        <ForumPreProContent
-          prepro={"이전 글"}
-          id={prev.id}
-          nickname={prev.nickname}
-          title={prev.title}
-          content={prev.content}
-        />
-        <ForumPreProContent
-          prepro={"다음 글"}
-          id={next.id}
-          nickname={next.nickname}
-          title={next.title}
-          content={next.content}
-        />
+        {prev ? (
+          <ForumPreProContent
+            prepro={"이전 글"}
+            id={prev.id}
+            nickname={prev.nickname}
+            title={prev.title}
+            content={prev.content}
+          />
+        ) : <div></div>}
+        {next ? (
+          <ForumPreProContent
+            prepro={"다음 글"}
+            id={next.id}
+            nickname={next.nickname}
+            title={next.title}
+            content={next.content}
+          />
+        ) : <div></div>}
       </PreProWrapper>
     </DetailWrapper>
   </div>
