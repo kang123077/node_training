@@ -1,5 +1,7 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
 body {
-	font-family: 'NanumSquare', sans-serif;
+	font-family: 'Pretendard', sans-serif;
 	padding: 0;
 	margin: 0;
 }
@@ -43,6 +45,7 @@ ul.pagination li {
 	justify-content: center;
 	align-items: center;
 	font-size: 14px;
+	cursor: pointer;
 }
 
 ul.pagination li:first-child {
@@ -66,7 +69,7 @@ ul.pagination li.active {
 
 ul.pagination li a:hover,
 ul.pagination li a.active {
-	color: #9381DD;
+	color: #494949;
 }
 
 .page-selection {
