@@ -8,26 +8,20 @@ const ForumDetailContent = (props) => {
         <LeftText>닉네임</LeftText>
         <LeftText>제목</LeftText>
       </Left>
-      <SectionBar />
       <Right>
-        <RightText>{props.nickname}</RightText>
-        <RightText>{props.title}</RightText>
-        <RightContent>{props.content}</RightContent>
+        <RightInput type="text" maxLength="20">
+          {props.nickname}
+        </RightInput>
+        <RightInput type="text" maxLength="40">
+          {props.title}
+        </RightInput>
+        <RightContentInput>{props.content}</RightContentInput>
       </Right>
     </ItemWrapper>
   );
 };
 
 export default ForumDetailContent;
-
-const SectionBar = styled.a`
-margin: 15px; 2vw 15px 0px;
-  display: flex;
-  background-color: #f6f8ff;
-  border-style: none none none solid;
-  border-color: #9381dd;
-  border-width: 2px;
-`;
 
 const ItemWrapper = styled.a`
   display: flex;
@@ -43,7 +37,7 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-  width: 79vw;
+  width: 77vw;
   height: 100%;
 `;
 
@@ -56,21 +50,29 @@ const LeftText = styled.div`
   color: #9381dd;
 `;
 
-const RightText = styled.div`
-  height: 20px;
-  margin: 21.5px 20px 0px 0px;
+const RightInput = styled.input`
+  width: 70vw;
+  height: 30px;
+  margin: 12px 20px 0px 0px;
   margin-right: 20px;
+  padding: 0px 10px 0px 10px;
   text-align: left;
   font-size: 14px;
   font-weight: normal;
   color: #9381dd;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  background: #ffffff;
+  border: 1px solid #9381dd;
+  box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.25);
+  border-radius: 15px;
 `;
 
-const RightContent = styled.div`
-  margin: 21.5px 20px 20px 0px;
+const RightContentInput = styled.input`
+  width: 70vw;
+  min-height: 500px;
+  margin: 20px 20px 20px 0px;
+  padding: 0px 10px 0px 10px;
+  vertical-align: top;
   text-align: left;
   font-size: 14px;
   font-weight: normal;
@@ -80,4 +82,8 @@ const RightContent = styled.div`
   //display: -webkit-box;
   //-webkit-line-clamp: 4;
   //-webkit-box-orient: vertical;
+  background: #ffffff;
+  border: 1px solid #9381dd;
+  box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.25);
+  border-radius: 15px;
 `;

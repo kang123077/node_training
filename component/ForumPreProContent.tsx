@@ -27,7 +27,7 @@ const PreProText = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: #494949;
-  transform: translate(-8px, -22px);
+  transform: translate(-6px, -22px);
 `;
 
 const ItemWrapper = styled.a`
