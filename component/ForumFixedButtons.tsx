@@ -5,7 +5,15 @@ const ForumFixedButtons = (props) => {
   const { push } = useRouter();
 
   const WrtieButtonOnclick = () => {
-    push(`forum/write`);
+    push("forum/write");
+  };
+
+  const WrtieButtonOnclick2 = () => {
+    location.href = "http://localhost:3000/forum/write";
+  };
+
+  const CancleButtonOnclick = () => {
+    location.href = "http://localhost:3000/forum";
   };
   return (
     <FixedButtonWrapper>
@@ -14,9 +22,18 @@ const ForumFixedButtons = (props) => {
       ) : (
         <div></div>
       )}
+      {props.write2 ? (
+        <FixedButton onClick={WrtieButtonOnclick2}>글쓰기</FixedButton>
+      ) : (
+        <div></div>
+      )}
       {props.modi ? <FixedButton>수정하기</FixedButton> : <div></div>}
-      {props.check ? <FixedButton>확인</FixedButton> : <div></div>}
-      {props.cancel ? <FixedButton>취소</FixedButton> : <div></div>}
+      {props.confirm ? <FixedButton>확인</FixedButton> : <div></div>}
+      {props.cancel ? (
+        <FixedButton onClick={CancleButtonOnclick}>취소</FixedButton>
+      ) : (
+        <div></div>
+      )}
     </FixedButtonWrapper>
   );
 };

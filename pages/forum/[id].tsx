@@ -39,7 +39,7 @@ const Post = ({ detail, next, prev }) => (
         )}
       </PreProWrapper>
     </DetailWrapper>
-    <ForumFixedButtons write="씀" modi="씀" />
+    <ForumFixedButtons write2="씀" modi="씀" />
   </div>
 );
 

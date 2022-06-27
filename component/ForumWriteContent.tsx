@@ -9,13 +9,15 @@ const ForumDetailContent = (props) => {
         <LeftText>제목</LeftText>
       </Left>
       <Right>
-        <RightInput type="text" maxLength="20">
+        <RightInput type="text" maxLength="40">
           {props.nickname}
         </RightInput>
-        <RightInput type="text" maxLength="40">
+        <RightInput type="text" maxLength="60">
           {props.title}
         </RightInput>
-        <RightContentInput>{props.content}</RightContentInput>
+        <RightContentInput type="text">
+          {props.content}
+        </RightContentInput>
       </Right>
     </ItemWrapper>
   );
@@ -47,6 +49,7 @@ const LeftText = styled.div`
   text-align: right;
   font-size: 16px;
   font-weight: bold;
+  font-family: Pretendard;
   color: #9381dd;
 `;
 
@@ -59,6 +62,7 @@ const RightInput = styled.input`
   text-align: left;
   font-size: 14px;
   font-weight: normal;
+  font-family: Pretendard;
   color: #9381dd;
   overflow: hidden;
   background: #ffffff;
@@ -67,15 +71,16 @@ const RightInput = styled.input`
   border-radius: 15px;
 `;
 
-const RightContentInput = styled.input`
+const RightContentInput = styled.textarea`
   width: 70vw;
   min-height: 500px;
   margin: 20px 20px 20px 0px;
-  padding: 0px 10px 0px 10px;
+  padding: 10px 10px 0px 10px;
   vertical-align: top;
   text-align: left;
   font-size: 14px;
   font-weight: normal;
+  font-family: Pretendard;
   color: #494949;
   overflow: hidden;
   //text-overflow: ellipsis;
