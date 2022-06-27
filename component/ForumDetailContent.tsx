@@ -43,7 +43,7 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-  width: 79vw;
+  width: 77vw;
   height: 100%;
 `;
 

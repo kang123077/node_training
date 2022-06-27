@@ -12,7 +12,7 @@ const Write = () => (
     <WriteWrapper>
       <ForumWriteContent></ForumWriteContent>
     </WriteWrapper>
-    <ForumFixedButtons write="씀" modi="씀" />
+    <ForumFixedButtons confirm="씀" cancel="씀" />
   </div>
 );
 
