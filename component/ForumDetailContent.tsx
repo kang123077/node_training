@@ -21,7 +21,7 @@ const ForumDetailContent = (props) => {
 export default ForumDetailContent;
 
 const SectionBar = styled.a`
-margin: 15px; 2vw 15px 0px;
+  margin: 15px 2vw 15px 0px;
   display: flex;
   background-color: #f6f8ff;
   border-style: none none none solid;

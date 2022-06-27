@@ -5,16 +5,28 @@ import ForumPreProContent from "../../component/ForumPreProContent";
 import ForumFixedButtons from "../../component/ForumFixedButtons";
 import ForumWriteContent from "../../component/ForumWriteContent";
 import styled from "styled-components";
+import { encrypt } from "../../utils/encrypt";
 
-const Write = () => (
-  <div>
-    <ForumHeaderContent pathtext="글쓰기" />
-    <WriteWrapper>
-      <ForumWriteContent></ForumWriteContent>
-    </WriteWrapper>
-    <ForumFixedButtons confirm="씀" cancel="씀" />
-  </div>
-);
+const CancleButtonOnclick = () => {
+  location.href = "http://localhost:3000/forum";
+};
+
+const ConfirmButtonClick = () => {};
+
+const Write = () => {
+  console.log(encrypt("1234"));
+
+  return (
+    <div>
+      <ForumHeaderContent pathtext="글쓰기" />
+      <WriteWrapper>
+        <ForumWriteContent></ForumWriteContent>
+      </WriteWrapper>
+    </div>
+  );
+};
+
+export default Write;
 
 const PreProWrapper = styled.div`
   display: flex;
@@ -40,5 +52,3 @@ const WriteWrapper = styled.div`
   justify-content: center;
   margin: 50px 0px 50px 0px;
 `;
-
-export default Write;
