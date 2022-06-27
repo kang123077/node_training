@@ -1,5 +1,6 @@
 import ForumHeaderContent from "../../component/ForumHeaderContent";
 import ForumItemContent from "../../component/ForumItemContent";
+import ForumFixedButtons from "../../component/ForumFixedButtons";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -40,7 +41,7 @@ const Forum = ({ list, pagination }) => {
         nextPageText={"›"}
         onChange={handlePageChange}
       />
-      <WriteButton>글쓰기</WriteButton>
+      <ForumFixedButtons write="씀" />
     </div>
   );
 };
@@ -69,25 +70,4 @@ const ItemListContent = styled.div`
   justify-content: center;
   gap: 40px;
   margin: 50px 0px 50px 0px;
-`;
-
-const WriteButton = styled.button`
-  position: fixed;
-  width: 108px;
-  height: 40px;
-  font-size: 14px;
-  right: 35px;
-  bottom: 35px;
-  background: #f6f8ff;
-  border: 1px solid #9381dd;
-  box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.25);
-  border-radius: 100px;
-
-  &:active,
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    background: #494949;
-    color: white;
-  }
 `;

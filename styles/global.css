@@ -48,11 +48,9 @@ ul.pagination li {
 	cursor: pointer;
 }
 
-ul.pagination li:first-child {
-}
+ul.pagination li:first-child {}
 
-ul.pagination li:last-child {
-}
+ul.pagination li:last-child {}
 
 ul.pagination li a {
 	text-decoration: none;
@@ -68,9 +66,7 @@ ul.pagination li.active {
 }
 
 ul.pagination li a:hover,
-ul.pagination li a.active {
-	color: #494949;
-}
+ul.pagination li a.active {}
 
 .page-selection {
 	width: 48px;

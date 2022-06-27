@@ -2,6 +2,7 @@ import axios from "axios";
 import ForumHeaderContent from "../../component/ForumHeaderContent";
 import ForumDetailContent from "../../component/ForumDetailContent";
 import ForumPreProContent from "../../component/ForumPreProContent";
+import ForumFixedButtons from "../../component/ForumFixedButtons";
 import styled from "styled-components";
 
 const Post = ({ detail, next, prev }) => (
@@ -22,7 +23,9 @@ const Post = ({ detail, next, prev }) => (
             title={prev.title}
             content={prev.content}
           />
-        ) : <div></div>}
+        ) : (
+          <div></div>
+        )}
         {next ? (
           <ForumPreProContent
             prepro={"다음 글"}
@@ -31,9 +34,12 @@ const Post = ({ detail, next, prev }) => (
             title={next.title}
             content={next.content}
           />
-        ) : <div></div>}
+        ) : (
+          <div></div>
+        )}
       </PreProWrapper>
     </DetailWrapper>
+    <ForumFixedButtons write="씀" modi="씀" />
   </div>
 );
 
@@ -45,6 +51,7 @@ Post.getInitialProps = async (context) => {
   console.log(detail, next, prev);
   return { detail: detail, next: next, prev: prev };
 };
+
 const PreProWrapper = styled.div`
   display: flex;
   flex-direction: row;
