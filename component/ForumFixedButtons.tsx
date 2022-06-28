@@ -15,6 +15,7 @@ const ForumFixedButtons = (props) => {
   const CancleButtonOnclick = () => {
     location.href = "http://localhost:3000/forum";
   };
+
   return (
     <FixedButtonWrapper>
       {props.write ? (
@@ -27,7 +28,11 @@ const ForumFixedButtons = (props) => {
       ) : (
         <div></div>
       )}
-      {props.modi ? <FixedButton>수정하기</FixedButton> : <div></div>}
+      {props.modi ? (
+        <FixedButton onClick={WrtieButtonOnclick2}>수정하기</FixedButton>
+      ) : (
+        <div></div>
+      )}
       {props.confirm ? <FixedButton>확인</FixedButton> : <div></div>}
       {props.cancel ? (
         <FixedButton onClick={CancleButtonOnclick}>취소</FixedButton>
