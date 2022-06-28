@@ -1,12 +1,30 @@
 import styled from "styled-components";
 import Link from "next/link";
+import PropTypes from "prop-types";
 import { useState } from "react";
+import Modal from "./modal";
+import Router from "next/router";
+
 const ForumWriteContent = (props) => {
   const [inputs, setInputs] = useState({
     nickname: "",
     title: "",
     password: "",
+    content: "",
   });
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  const CancleButtonOnclick = () => {
+    location.href = "http://localhost:3000/forum";
+  };
 
   return (
     <ItemWrapper>
@@ -30,8 +48,18 @@ const ForumWriteContent = (props) => {
         </RightContentInput>
       </Right>
       <FixedButtonWrapper>
-        <FixedButton onCilck="">확인</FixedButton>
-        <FixedButton onCilck="">취소</FixedButton>
+        <FixedButton onClick={openModal}>확인</FixedButton>
+        {modalVisible && (
+          <Modal
+            visible={modalVisible}
+            closable={true}
+            maskClosable={true}
+            onClose={closeModal}
+          >
+            게시글 작성을 완료하시겠습니까?
+          </Modal>
+        )}
+        <FixedButton onClick={() => Router.back()}>취소</FixedButton>
       </FixedButtonWrapper>
     </ItemWrapper>
   );
