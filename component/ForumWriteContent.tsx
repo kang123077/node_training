@@ -18,6 +18,7 @@ const ForumWriteContent = (props) => {
   const openModal = () => {
     setModalVisible(true);
   };
+  
   const closeModal = () => {
     setModalVisible(false);
   };

@@ -4,12 +4,10 @@ import styled from "styled-components";
 import ModalCloseButton from "./ModalCloseButton";
 
 function Modal({
-  className,
   onClose,
   maskClosable,
   visible,
   children,
-  closeModal,
 }) {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
