@@ -2,23 +2,51 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import ModalCloseButton from "./ModalCloseButton";
+import axios from "axios";
 
-function Modal({
+const Modal = ({
   onClose,
   maskClosable,
   visible,
   children,
-}) {
+  password,
+  title,
+  content,
+  nickName,
+}) => {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);
     }
   };
+
   const close = (e) => {
     if (onClose) {
       onClose(e);
     }
   };
+
+  const Post = () => {
+    axios({
+      method: "POST",
+      url: "http://124.197.210.234:8188/bulletin",
+      data: {
+        password: password,
+        title: title,
+        content: content,
+        nickname: nickName,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    location.href = "http://localhost:3000/forum";
+  };
+
+  console.log(nickName, title, password, content);
 
   return (
     <div>
@@ -32,7 +60,7 @@ function Modal({
           {children}
           <ModalButtonWrapper>
             <ModalButton onClick={close}>취소</ModalButton>
-            <ModalButton>확인</ModalButton>
+            <ModalButton onClick={Post}>확인</ModalButton>
           </ModalButtonWrapper>
           <ModalCloseButtonWrapper onClick={close}>
             <ModalCloseButton />
@@ -41,7 +69,7 @@ function Modal({
       </ModalWrapper>
     </div>
   );
-}
+};
 
 Modal.defaultProps = {
   visible: false,
