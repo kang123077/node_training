@@ -3,22 +3,33 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Modal from "./modal";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 const ForumWriteContent = (props) => {
+  const { back } = useRouter();
+
   const [inputs, setInputs] = useState({
-    nickname: "",
+    nickName: "ㅇㅇ",
     title: "",
     password: "",
     content: "",
   });
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const { nickName, title, password, content } = inputs;
+
+  const onChangeValue = (e) => {
+    setInputs({
+      ...inputs,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   const openModal = () => {
     setModalVisible(true);
   };
-  
+
   const closeModal = () => {
     setModalVisible(false);
   };
@@ -35,16 +46,31 @@ const ForumWriteContent = (props) => {
         <LeftText>비밀번호</LeftText>
       </Left>
       <Right>
-        <RightInput type="text" maxLength="40" name="nickname">
-          {props.nickname}
+        <RightInput
+          type="text"
+          maxLength="40"
+          name="nickName"
+          onChange={onChangeValue}
+        >
+          {props.nickName}
         </RightInput>
-        <RightInput type="text" maxLength="60" name="title">
+        <RightInput
+          type="text"
+          maxLength="60"
+          name="title"
+          onChange={onChangeValue}
+        >
           {props.title}
         </RightInput>
-        <RightInput type="text" maxLength="8" name="password">
+        <RightInput
+          type="text"
+          maxLength="8"
+          name="password"
+          onChange={onChangeValue}
+        >
           {props.password}
         </RightInput>
-        <RightContentInput type="text" name="content">
+        <RightContentInput type="text" name="content" onChange={onChangeValue}>
           {props.content}
         </RightContentInput>
       </Right>
@@ -56,11 +82,15 @@ const ForumWriteContent = (props) => {
             closable={true}
             maskClosable={true}
             onClose={closeModal}
+            password={password}
+            title={title}
+            content={content}
+            nickName={nickName}
           >
             게시글 작성을 완료하시겠습니까?
           </Modal>
         )}
-        <FixedButton onClick={() => Router.back()}>취소</FixedButton>
+        <FixedButton onClick={() => back()}>취소</FixedButton>
       </FixedButtonWrapper>
     </ItemWrapper>
   );
@@ -134,6 +164,7 @@ const RightContentInput = styled.textarea`
   border: 1px solid #9381dd;
   box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.25);
   border-radius: 15px;
+  resize: none;
 `;
 
 const FixedButtonWrapper = styled.div`
