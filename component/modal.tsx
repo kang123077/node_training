@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import ModalCloseButton from "./ModalCloseButton";
 import axios from "axios";
+import { encrypt } from "../utils/encrypt";
+import { useRouter } from "next/router";
 
 const Modal = ({
   onClose,
@@ -14,6 +16,7 @@ const Modal = ({
   content,
   nickName,
 }) => {
+  const { replace } = useRouter();
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);
@@ -31,19 +34,19 @@ const Modal = ({
       method: "POST",
       url: "http://124.197.210.234:8188/bulletin",
       data: {
-        password: password,
+        password: encrypt(password),
         title: title,
         content: content,
         nickname: nickName,
       },
     })
       .then((res) => {
+        replace("/forum");
         console.log(res);
       })
       .catch((error) => {
         console.log(error);
       });
-    location.href = "http://localhost:3000/forum";
   };
 
   console.log(nickName, title, password, content);

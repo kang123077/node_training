@@ -9,14 +9,14 @@ const ModalCloseButton = () => {
     >
       <g filter="url(#filter0_d_95_182)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M19.9023 22L3.11999 5.11111L5.21777 3L22 19.8889L19.9023 22Z"
           fill="#494949"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.8801 5.11115L5.09778 22L3 19.8889L19.7823 3.00004L21.8801 5.11115Z"
           fill="#494949"
         />
@@ -29,9 +29,9 @@ const ModalCloseButton = () => {
           width="27"
           height="27"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
