@@ -4,19 +4,21 @@ import { useState } from "react";
 
 const ForumPreProContent = (props) => {
   return (
-    <Link href={`${props.id}`}>
-      <ItemWrapper>
-        <PreProText>{props.prepro}</PreProText>
-        <Left>
-          <LeftText>닉네임</LeftText>
-          <LeftText>제목</LeftText>
-        </Left>
-        <Right>
-          <RightText>{props.nickname}</RightText>
-          <RightText>{props.title}</RightText>
-        </Right>
-      </ItemWrapper>
-    </Link>
+    <div>
+      <Link href={`${props.id}`}>
+        <ItemWrapper>
+          <PreProText>{props.prepro}</PreProText>
+          <Left>
+            <LeftText>닉네임</LeftText>
+            <LeftText>제목</LeftText>
+          </Left>
+          <Right>
+            <RightText>{props.nickname}</RightText>
+            <RightText>{props.title}</RightText>
+          </Right>
+        </ItemWrapper>
+      </Link>
+    </div>
   );
 };
 

@@ -3,24 +3,26 @@ import Link from "next/link";
 
 const ForumDetailContent = (props) => {
   return (
-    <ItemWrapper>
-      <Left>
-        <LeftText>닉네임</LeftText>
-        <LeftText>제목</LeftText>
-      </Left>
-      <SectionBar />
-      <Right>
-        <RightText>{props.nickname}</RightText>
-        <RightText>{props.title}</RightText>
-        <RightContent>{props.content}</RightContent>
-      </Right>
-    </ItemWrapper>
+    <div>
+      <ItemWrapper>
+        <Left>
+          <LeftText>닉네임</LeftText>
+          <LeftText>제목</LeftText>
+        </Left>
+        <SectionBar />
+        <Right>
+          <RightText>{props.nickname}</RightText>
+          <RightText>{props.title}</RightText>
+          <RightContent>{props.content}</RightContent>
+        </Right>
+      </ItemWrapper>
+    </div>
   );
 };
 
 export default ForumDetailContent;
 
-const SectionBar = styled.a`
+const SectionBar = styled.div`
   margin: 15px 2vw 15px 0px;
   display: flex;
   background-color: #f6f8ff;
@@ -29,7 +31,7 @@ const SectionBar = styled.a`
   border-width: 2px;
 `;
 
-const ItemWrapper = styled.a`
+const ItemWrapper = styled.div`
   display: flex;
   background-color: #f6f8ff;
   border-style: none none none solid;

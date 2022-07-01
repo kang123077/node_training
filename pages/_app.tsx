@@ -6,6 +6,13 @@ import { NextComponentType } from "next";
 import { AppContext, AppInitialProps, AppProps } from "next/app";
 import { useState } from "react";
 import modal from "../component/modal";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -14,8 +21,10 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   const [queryClient] = useState(() => new QueryClient());
   return (
     <>
-      <modal />
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <modal />
+        <Component {...pageProps} />
+      </RecoilRoot>
     </>
   );
 };

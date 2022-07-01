@@ -26,6 +26,7 @@
     "react-dom": "^18.1.0",
     "react-js-pagination": "^3.0.2",
     "react-query": "^3.39.1",
+    "recoil": "^0.7.4",
     "styled-components": "^5.3.5",
     "typescript": "^4.7.3"
   },

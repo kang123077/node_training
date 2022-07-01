@@ -24,7 +24,7 @@ const Post = ({ detail, next, prev }) => (
             content={prev.content}
           />
         ) : (
-          <div></div>
+          <></>
         )}
         {next ? (
           <ForumPreProContent
@@ -35,7 +35,7 @@ const Post = ({ detail, next, prev }) => (
             content={next.content}
           />
         ) : (
-          <div></div>
+          <></>
         )}
       </PreProWrapper>
     </DetailWrapper>
