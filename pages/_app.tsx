@@ -1,11 +1,10 @@
 import "../styles/global.css";
 
-import React from "react";
+import React,{ Suspense } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { NextComponentType } from "next";
 import { AppContext, AppInitialProps, AppProps } from "next/app";
 import { useState } from "react";
-import modal from "../component/modal";
 import {
   RecoilRoot,
   atom,
@@ -13,6 +12,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from "recoil";
+import Modal from "../component/modal";
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -22,7 +22,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   return (
     <>
       <RecoilRoot>
-        <modal />
+        <Modal children={null} />
         <Component {...pageProps} />
       </RecoilRoot>
     </>

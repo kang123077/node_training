@@ -5,72 +5,67 @@ import ModalCloseButton from "./ModalCloseButton";
 import axios from "axios";
 import { encrypt } from "../utils/encrypt";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import ModalVisibility from "../recolis/modalvisibility";
 
 const Modal = ({
-  onClose,
-  maskClosable,
-  visible,
-  children,
-  password,
-  title,
-  content,
-  nickName,
+  // password,
+  // title,
+  // content,
+  // nickName,
 }) => {
   const { replace } = useRouter();
-  const onMaskClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose(e);
-    }
-  };
 
-  const close = (e) => {
-    if (onClose) {
-      onClose(e);
-    }
+  const [modalState, setModalState] = useRecoilState(ModalVisibility)
+
+  const close = () => {
+    setModalState({
+      type: 'none',
+      children: null,
+    });
   };
 
   const Post = () => {
-    axios({
-      method: "POST",
-      url: "http://124.197.210.234:8188/bulletin",
-      data: {
-        password: encrypt(password),
-        title: title,
-        content: content,
-        nickname: nickName,
-      },
-    })
-      .then((res) => {
-        replace("/forum");
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios({
+    //   method: "POST",
+    //   url: "http://124.197.210.234:8188/bulletin",
+    //   data: {
+    //     password: encrypt(password),
+    //     title: title,
+    //     content: content,
+    //     nickname: nickName,
+    //   },
+    // })
+    //   .then((res) => {
+    //     replace("/forum");
+    //     console.log(res);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
-  console.log(nickName, title, password, content);
-
   return (
-    <div>
-      <ModalOverlay visible={visible} />
-      <ModalWrapper
-        onClick={maskClosable ? onMaskClick : null}
-        tabIndex="-1"
-        visible={visible}
-      >
-        <ModalInner tabIndex="0" className="modal-inner">
-          {children}
-          <ModalButtonWrapper>
-            <ModalButton onClick={close}>취소</ModalButton>
-            <ModalButton onClick={Post}>확인</ModalButton>
-          </ModalButtonWrapper>
-          <ModalCloseButtonWrapper onClick={close}>
-            <ModalCloseButton />
-          </ModalCloseButtonWrapper>
-        </ModalInner>
-      </ModalWrapper>
-    </div>
+    modalState.type !== "none" ?
+      <div>
+        <ModalOverlay />
+        <ModalWrapper
+          onClick={close}
+          tabIndex="-1"
+        >
+          <ModalInner tabIndex="0" className="modal-inner">
+            {modalState.children ?? <p>업승ㅁ!</p>}
+            <ModalButtonWrapper>
+              <ModalButton onClick={close}>취소</ModalButton>
+              <ModalButton onClick={Post}>확인</ModalButton>
+            </ModalButtonWrapper>
+            <ModalCloseButtonWrapper onClick={close}>
+              <ModalCloseButton />
+            </ModalCloseButtonWrapper>
+          </ModalInner>
+        </ModalWrapper>
+      </div>
+      : null
   );
 };
 
@@ -86,7 +81,7 @@ Modal.propTypes = {
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
-  display: ${(props) => (props.visible ? "block" : "none")};
+  display: "block";
   position: fixed;
   top: 0;
   right: 0;
@@ -99,7 +94,7 @@ const ModalWrapper = styled.div`
 
 const ModalOverlay = styled.div`
   box-sizing: border-box;
-  display: ${(props) => (props.visible ? "block" : "none")};
+  display: "block";
   position: fixed;
   top: 0;
   left: 0;

@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import Modal from "./modal";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import ModalVisibility from "../recolis/modalvisibility";
 
 const ForumWriteContent = (props) => {
   const { back } = useRouter();
@@ -24,14 +26,15 @@ const ForumWriteContent = (props) => {
     });
   };
 
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useRecoilState(ModalVisibility);
 
   const openModal = () => {
-    setModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setModalVisible(false);
+    setModalVisible(
+      {
+        type: "confirm",
+        children: <div><p>해당 게시글??</p><p>해당 게시글??</p></div>
+      }
+    );
   };
 
   const CancleButtonOnclick = () => {
@@ -76,12 +79,10 @@ const ForumWriteContent = (props) => {
       </Right>
       <FixedButtonWrapper>
         <FixedButton onClick={openModal}>확인</FixedButton>
-        {modalVisible && (
+        {/* {modalVisible && (
           <Modal
-            visible={modalVisible}
             closable={true}
             maskClosable={true}
-            onClose={closeModal}
             password={password}
             title={title}
             content={content}
@@ -89,7 +90,7 @@ const ForumWriteContent = (props) => {
           >
             게시글 작성을 완료하시겠습니까?
           </Modal>
-        )}
+        )} */}
         <FixedButton onClick={() => back()}>취소</FixedButton>
       </FixedButtonWrapper>
     </ItemWrapper>

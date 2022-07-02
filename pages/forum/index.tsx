@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import axios from "axios";
 import Pagination from "react-js-pagination";
+import { useRecoilState } from "recoil";
+import ModalVisibility from "../../recolis/modalvisibility";
 
 const Forum = ({ list, pagination }) => {
   const [pathtext, setPathtext] = useState("Forum");
@@ -16,6 +18,12 @@ const Forum = ({ list, pagination }) => {
   const handlePageChange = (page) => {
     setPage(page);
     push(`forum?curPage=${page}`);
+  };
+
+  const [modalVisible, setModalVisible] = useRecoilState(ModalVisibility)
+
+  const openModal = () => {
+    setModalVisible("confirm");
   };
 
   return (
@@ -42,6 +50,7 @@ const Forum = ({ list, pagination }) => {
         onChange={handlePageChange}
       />
       <ForumFixedButtons write="씀" />
+      <FixedButton onClick={openModal}>확인</FixedButton>
     </div>
   );
 };
@@ -70,4 +79,23 @@ const ItemListContent = styled.div`
   justify-content: center;
   gap: 40px;
   margin: 50px 0px 50px 0px;
+`;
+
+const FixedButton = styled.button`
+  width: 108px;
+  height: 40px;
+  font-size: 14px;
+  background: #f6f8ff;
+  border: 1px solid #9381dd;
+  box-shadow: 2px 2px 4px rgba(116, 116, 116, 0.25);
+  border-radius: 100px;
+  margin-top: 20px;
+
+  &:active,
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background: #494949;
+    color: white;
+  }
 `;
